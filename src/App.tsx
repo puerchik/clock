@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import { Clock } from './Components/Clock';
+import { StopClock } from './Components/StopClock';
 
 function App() {
 
-  const displayFormatting = (num: number) => num < 10 ? "0" + num : num;
+  const [toggle, setToggle] = useState(true)
 
-  const [time, setTime] = useState(new Date())
-
-  useEffect(() => {
-    setInterval(() => {
-      setTime(new Date())
-    }, 1000)
-  }, [])
+  const changeToggleHandler = () => setToggle(!toggle);
 
   return (
-    <div className="App">
-      <div className="clockWrapper">
-        <span className='time'>
-          {`${displayFormatting(time.getHours())}:${displayFormatting(time.getMinutes())}:${displayFormatting(time.getSeconds())}`}
-        </span>
-      </div>
+    <div>
+      {toggle
+        ? <Clock changeToggle={changeToggleHandler} />
+        : <StopClock changeToggle={changeToggleHandler} />}
     </div>
-  );
+  )
+
 }
 
 export default App;
+
