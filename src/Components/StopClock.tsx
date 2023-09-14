@@ -2,13 +2,13 @@ type StopClockPropsType = {
     changeToggle: () => void
 }
 
-export const StopClock = (props: StopClockPropsType) => {
+export const StopClock: React.FC<StopClockPropsType> = ({changeToggle}) => {
     return (
         <>
             <div className="stopClock">
                 <span className="stopClockText">Stop clock</span>
-                <button onClick={props.changeToggle} className="button resetButton">reset</button>
-            </div >
+                <button onClick={changeToggle} className="button resetButton">return</button>
+            </div>
         </>
     )
 }

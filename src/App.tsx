@@ -10,7 +10,7 @@ function App() {
   const changeToggleHandler = () => setToggle(!toggle);
 
   return (
-    <div>
+    <div className="App">
       {toggle
         ? <Clock changeToggle={changeToggleHandler} />
         : <StopClock changeToggle={changeToggleHandler} />}
